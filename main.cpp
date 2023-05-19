@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "managed_memory.h"
-#include "math.h"
+#include "tinygrad.h"
 
 std::mt19937_64 g_rand;
 std::mt19937_64 g_gid_rand;
