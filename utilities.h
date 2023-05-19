@@ -1,3 +1,5 @@
+#pragma once
+
 #include <random>
 #include <iomanip>
 #include <iostream>
@@ -21,3 +23,11 @@ using b32 = bool;
 using rand_normal = std::normal_distribution<f32>;
 
 using PRNGKey = std::mt19937_64;
+
+// TODO(schsam): Move this elsewhere.
+inline b32 all_close(const f32* a, const f32* b, u32 count, f32 tol = 1e-5) {
+  for (u32 i = 0; i < count; i++)
+    if (abs(a[i] - b[i]) > tol && abs(a[i] - b[i]) / abs(a[i]) > tol)
+      return false;
+  return true;
+}
